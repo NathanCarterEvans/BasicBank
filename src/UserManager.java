@@ -57,4 +57,8 @@ public class UserManager {
     public static void CLEARACCOUNTS(){
         basicUsers = new ArrayList<Account>();
     }
+
+    public static void Update_Password(int id, String Password){
+        basicUsers.get(id).UpdatePasswordHash(Password);
+    }
 }
