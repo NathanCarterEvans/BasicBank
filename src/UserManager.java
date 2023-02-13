@@ -3,7 +3,8 @@ import java.util.ArrayList;
 /**
  * @author NathanCarterEvans
  * This class is used to look up, make, and manage users. This is implemented as an extra form of security.
- * Only the Bank class can accses this.
+ * This is a middle man between account and any other class.
+ * 
  */
 public class UserManager {
 
@@ -11,7 +12,7 @@ public class UserManager {
     private static final int TOTAL_USERS_TO_LEASE = 5;
     
 
-    private static ArrayList<Account> basicUsers = new ArrayList<Account>(); //Tracks bassicUsers. Non
+    private static ArrayList<Account> basicUsers = new ArrayList<Account>(); //Tracks bassicUsers.
     private static int currentIndexForBasicUsers =0;
     
     public static int MakeNewUser(){
@@ -56,9 +57,14 @@ public class UserManager {
 
     public static void CLEARACCOUNTS(){
         basicUsers = new ArrayList<Account>();
+        currentIndexForBasicUsers =0;
     }
 
     public static void Update_Password(int id, String Password){
         basicUsers.get(id).UpdatePasswordHash(Password);
+    }
+
+    public static void Update_Username(int id, String UserName){
+        basicUsers.get(id).UpdateUserName(UserName);
     }
 }

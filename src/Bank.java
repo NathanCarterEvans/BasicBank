@@ -9,8 +9,10 @@ public class Bank {
        
     }
 
-    public static void CreateNewUser(String UName, int pin){
-        Account newUserAccount = UserManager.getAccountFromID(UserManager.MakeNewUser()); //Creates an account and stores it in newUserAccount
+    public static void CreateNewUser(String UName, String Pword, int pin){
+        int newUserAccountID = UserManager.MakeNewUser(); //Creates an account and stores it in newUserAccount
+        UserManager.Update_Password(newUserAccountID, UName);
+        
 
     }
 

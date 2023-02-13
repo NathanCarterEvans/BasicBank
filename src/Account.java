@@ -8,7 +8,7 @@ public class Account {
      //TODO make user name and pin
      //TODO needs a valut with money
     private int USER_ID;
-    private String PASSWORD_HASH = "";
+    private int PASSWORD_HASH = 0;
 
     public Account(int USER_ID){
         this.USER_ID = USER_ID;
@@ -18,13 +18,21 @@ public class Account {
         return USER_ID;
     }
 
-    public void UpdatePasswordHash(String passwordHash){
-        PASSWORD_HASH = passwordHash;
+    public void UpdateUserName(String uname){
+        
+    }
+
+    public void UpdatePasswordHash(String password){
+        PASSWORD_HASH = PasswordEncryption.Encrypt(password);
     } 
 
-    public boolean getPasswordHash(String PasswordHash_COMPARE){
+    public boolean getPasswordHash(int PasswordHash_COMPARE){
         
-        return true;
+        if(PasswordHash_COMPARE == PASSWORD_HASH){
+            return true;
+        }
+        return false;
+        
     }
 
 }
